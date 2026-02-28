@@ -1,0 +1,13 @@
+.light{
+  background: white;
+  color: black;
+  transition: all 0.5s;
+}
+
+.dark{
+  background: oklch(13% 0.028 261.692);
+  color: white;
+  transition: all 0.5s;
+
+
+}
