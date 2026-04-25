@@ -32,7 +32,7 @@ function App() {
     };
   }, []);
 
-  const [theme, setTheme] = useState(localStorage.getItem("mode") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("mode") || "dark");
 
   useEffect(() => {
     localStorage.setItem("mode", theme);
@@ -42,7 +42,9 @@ function App() {
 
   return (
     <>
-      <Header theme={theme} setTheme={setTheme} activeSection={activeSection} />
+      {/* <Header theme={theme} setTheme={setTheme} activeSection={activeSection} /> */}
+      <Header  activeSection={activeSection} />
+
 
       <main className="mt-10 h-screen overflow-y-scroll snap-y snap-mandatory">
         <section id="home" className="h-screen  snap-start">
@@ -65,9 +67,10 @@ function App() {
           <Certification/>
         </section>
 
-        <section id="contact" className="h-screen snap-start">
+        {/* <section id="contact" className="h-screen snap-start">
           <Contact/>
-        </section>
+        </section> */}
+
       </main>
     </>
   );

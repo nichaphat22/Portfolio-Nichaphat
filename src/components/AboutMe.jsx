@@ -11,7 +11,9 @@ const AboutMe = () => {
             src={profileAboutMe}
             alt="รูปโปรไฟล์"
           />
-          <button className="flex items-center gap-2 text-sm p-2 px-9 m-3 border rounded-xl cursor-pointer"><FiDownload/> Download Resume</button>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm p-2 px-9 m-3 border rounded-xl cursor-pointer">
+            <FiDownload /> Download Resume
+          </a>
         </div>
         <div className="mx-6 w-2/3 ">
           <h2 className="text-3xl font-semibold text-white text-right">

@@ -108,7 +108,7 @@ const Header = ({theme, setTheme, activeSection}) => {
           
           <div onClick={toggleTheme} className="block text-gray-600 dark:text-gray-300">
             {theme === "light" ? <IoSunnySharp size={25}/> : <IoMoon size={25}/>}
-          </div>
+          </div> 
 
           
         </div>
