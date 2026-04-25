@@ -11,7 +11,7 @@ const AboutMe = () => {
             src={profileAboutMe}
             alt="รูปโปรไฟล์"
           />
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm p-2 px-9 m-3 border rounded-xl cursor-pointer">
+          <a href="https://drive.google.com/file/d/1kX9J9eOSImIr1k_PRsAQC1OdTP1mT2kT/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm p-2 px-9 m-3 border rounded-xl cursor-pointer">
             <FiDownload /> Download Resume
           </a>
         </div>

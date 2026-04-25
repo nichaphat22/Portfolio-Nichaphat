@@ -20,7 +20,7 @@ const Home = () => {
             <IoLogoGithub /> GitHub <BsArrowRight />
           </a>
 
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-2 bg-white/30  dark:bg-gray-900/60 backdrop-blur-lg border border-gray-900/50 rounded-xl shadow-lg hover:bg-white/10 hover:scale-105 transition duration-300 cursor-pointer">
+          <a href="https://drive.google.com/file/d/1kX9J9eOSImIr1k_PRsAQC1OdTP1mT2kT/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-2 bg-white/30  dark:bg-gray-900/60 backdrop-blur-lg border border-gray-900/50 rounded-xl shadow-lg hover:bg-white/10 hover:scale-105 transition duration-300 cursor-pointer">
             <IoPersonSharp /> Resume <BsArrowRight />
           </a>
         </div>
