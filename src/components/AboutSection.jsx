@@ -63,10 +63,11 @@ useEffect(() => {
 }, []);
 
   return (
-    <div id="about-container" className="text-center mt-5 h-[400px] overflow-hidden">
+    <div id="about-container" className="text-center mt-5 min-h-[400px] overflow-hidden">
+
       {/* Tabs */}
       <div className="flex justify-center">
-        <div className="flex gap-3 bg-gray-800 p-2 rounded-xl">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3  bg-gray-800 p-2 rounded-xl">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -80,12 +81,14 @@ useEffect(() => {
                     `}
             >
               {tab.icon}
-              {tab.label}
+              <span className="hidden xs:inline sm:inline">{tab.label}</span>
+              
             </button>
           ))}
         </div>
       </div>
-
+      
+      {/* Content */}
       <div className="mt-8 max-w-3xl mx-auto p-6 relative overflow-hidden">
         <div key={actionTab} className="animate-fade">
           {actionTab === "story" && <StoryContent />}

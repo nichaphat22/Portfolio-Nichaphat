@@ -12,21 +12,21 @@ const SkillsTable = () => {
       {skills.map((skills, index) => (
         <div 
           key={index}
-          className="grid grid-cols-3 border-b border-gray-400"
+          className="grid grid-cols-4 border-b border-gray-400"
           >
             {/* Left Colum */}
-            <div className="border-r border-gray-400 p-6 text-sm">
+            <div className="col-span-1 border-r border-gray-400 p-3 md:p-6 text-xs md:text-sm flex items-center">
               {skills.label}
             </div>
 
             {/* Right Colum */}
-            <div className="col-span-2 flex items-center gap-6 p-6">
+            <div className="col-span-3 flex items-center flex-wrap gap-3 md:gap-6 p-3 md:p-6">
                 {skills.logos.map((logo, i) => (
                   <img 
                     key={i}
                     src={logo} 
                     alt=""
-                    className="w-10 h-10 rounded-3xl   object-contain hover:scale-110 transition duration-300" />
+                    className="w-7 h-7 md:w-10 md:h-10 rounded-2xl   object-contain hover:scale-110 transition duration-300" />
                 ))}
             </div>
 

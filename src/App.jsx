@@ -42,8 +42,8 @@ function App() {
 
   return (
     <>
-      {/* <Header theme={theme} setTheme={setTheme} activeSection={activeSection} /> */}
-      <Header  activeSection={activeSection} />
+      <Header theme={theme} setTheme={setTheme} activeSection={activeSection} />
+      {/* <Header  activeSection={activeSection} />  */}
 
 
       <main className="mt-10 h-screen overflow-y-scroll snap-y snap-mandatory">
@@ -51,25 +51,25 @@ function App() {
           <Home />
         </section>
 
-        <section id="about" className="h-screen snap-start">
+        <section id="about" className="min-h-screen snap-start">
           <AboutMe />
         </section>
 
-        <section id="project" className="h-screen snap-start">
+        <section id="project" className="min-h-screen snap-start">
           <Projects/>
         </section>
 
-        <section id="skills" className="h-screen snap-start">
+        <section id="skills" className="min-h-screen snap-start">
           <Skills/>
         </section>
 
-        <section id="certification" className="h-screen snap-start">
+        <section id="certification" className="min-h-screen snap-start">
           <Certification/>
         </section>
 
-        {/* <section id="contact" className="h-screen snap-start">
+         <section id="contact" className="min-h-screen snap-start">
           <Contact/>
-        </section> */}
+        </section> 
 
       </main>
     </>
