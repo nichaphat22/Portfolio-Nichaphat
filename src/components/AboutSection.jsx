@@ -4,71 +4,55 @@ import StoryContent from "./StoryContent";
 import InterestContent from "./InterestContent";
 import EducationContent from "./EducationContent";
 
+const TABS = [
+  { id: "story", label: "My Story", icon: <FaUser size={14} /> },
+  { id: "interest", label: "Interest", icon: <FaHeart size={14} /> },
+  { id: "education", label: "Education", icon: <FaGraduationCap size={14} /> },
+];
+
+
 const AboutSection = () => {
   const [actionTab, setActionTab] = useState("story");
+  const isScrollLocked = useRef(false);
 
-  const tabs = [
-    { id: "story", label: "My Story", icon: <FaUser size={14} /> },
-    { id: "interest", label: "Interest", icon: <FaHeart size={14} /> },
-    {
-      id: "education",
-      label: "Education",
-      icon: <FaGraduationCap size={14} />,
-    },
-  ];
+  useEffect(() => {
+    const container = document.getElementById("about-container");
+    if (!container) return;
 
-  const scrollLook = useRef(false);
+    const handleScroll = (e) => {
+      if (isScrollLocked.current) return; // ✅ check ก่อน preventDefault
 
-useEffect(() => {
-  const container = document.getElementById("about-container");
-  if (!container) return;
+      const currentIndex = TABS.findIndex((tab) => tab.id === actionTab);
+      // ใช้ ref แทนเพื่อหลีกเลี่ยง stale closure ↓
+      
+      const isLast = currentIndex === TABS.length - 1;
+      const isFirst = currentIndex === 0;
 
-  const handleScroll = (e) => {
-    e.preventDefault();
+      // ถ้าอยู่ขอบและยังจะ scroll ต่อ → ปล่อยให้ snap ทำงาน
+      if ((e.deltaY > 0 && isLast) || (e.deltaY < 0 && isFirst)) return;
 
-    if (scrollLook.current) return;
+      e.preventDefault(); // ✅ intercept เฉพาะตอนที่จะเปลี่ยน tab
+      isScrollLocked.current = true;
 
-    scrollLook.current = true;
+      if (e.deltaY > 0) setActionTab(TABS[currentIndex + 1].id);
+      else setActionTab(TABS[currentIndex - 1].id);
 
-    setActionTab((prev) => {
-      const currentIndex = tabs.findIndex(
-        (tab) => tab.id === prev
-      );
+      setTimeout(() => { isScrollLocked.current = false; }, 700);
+    };
 
-      if (e.deltaY > 0) {
-        if (currentIndex < tabs.length - 1) {
-          return tabs[currentIndex + 1].id;
-        }
-      } else {
-        if (currentIndex > 0) {
-          return tabs[currentIndex - 1].id;
-        }
-      }
-
-      return prev;
-    });
-
-    setTimeout(() => {
-      scrollLook.current = false;
-    }, 700);
-  };
-
-  container.addEventListener("wheel", handleScroll, {
-    passive: false,
-  });
-
-  return () => {
-    container.removeEventListener("wheel", handleScroll);
-  };
-}, []);
+    container.addEventListener("wheel", handleScroll, { passive: false });
+    return () => container.removeEventListener("wheel", handleScroll);
+  }, [actionTab]);
 
   return (
-    <div id="about-container" className="text-center mt-5 min-h-[400px] overflow-hidden">
-
+    <div
+      id="about-container"
+      className="text-center mt-5 min-h-[400px] overflow-hidden"
+    >
       {/* Tabs */}
       <div className="flex justify-center">
         <div className="flex flex-wrap justify-center gap-2 md:gap-3  bg-gray-800 p-2 rounded-xl">
-          {tabs.map((tab) => (
+          {TABS.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActionTab(tab.id)}
@@ -82,12 +66,11 @@ useEffect(() => {
             >
               {tab.icon}
               <span className="hidden xs:inline sm:inline">{tab.label}</span>
-              
             </button>
           ))}
         </div>
       </div>
-      
+
       {/* Content */}
       <div className="mt-8 max-w-3xl mx-auto p-6 relative overflow-hidden">
         <div key={actionTab} className="animate-fade">

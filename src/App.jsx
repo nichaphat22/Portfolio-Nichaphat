@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Certification from "./components/Certification";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -46,7 +47,7 @@ function App() {
       {/* <Header  activeSection={activeSection} />  */}
 
 
-      <main className="mt-10 h-screen overflow-y-scroll snap-y snap-mandatory">
+      <main id="main-scroll" className="mt-10 h-screen overflow-y-scroll snap-y snap-mandatory">
         <section id="home" className="h-screen  snap-start">
           <Home />
         </section>
@@ -69,6 +70,10 @@ function App() {
 
          <section id="contact" className="min-h-screen snap-start">
           <Contact/>
+        </section> 
+
+        <section id="footer" className="min-h-screen snap-start">
+          <Footer/>
         </section> 
 
       </main>

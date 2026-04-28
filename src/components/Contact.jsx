@@ -57,10 +57,10 @@ const Contact = () => {
       <h2 className="text-3xl font-semibold text-center">Get In Touch</h2>
       <div className=" mt-2 h-[1px] bg-white"></div>
 
-      <div className="mx-4 md:mx-16 lg-mx-32 mt-5 flex flex-col md:flex-row justify-between gap-6">
+      <div className="mx-4 md:mx-16 lg-mx-32 mt-5 flex flex-col md:flex-row justify-between gap-6 lg:justify-center">
         {/* Left */}
-        <div className="flex flex-col w-full md:w-1/2">
-          <div className=" space-y-5 mt-5">
+        <div className="flex flex-col w-full md:w-1/2 lg:w-md ">
+          <div className=" space-y-5  mt-5">
             <div className="flex gap-8  bg-gray-900 p-4 md:p-6 rounded-xl text-gray-300 h-24 ">
               <HiOutlineMail className="w-8 h-8 shrink-0" />
               <div>
@@ -106,7 +106,7 @@ const Contact = () => {
         <form
           ref={formRef}
           onSubmit={sendEmail}
-          className="w-full md:w-1/2 mt-5"
+          className="w-full md:w-md mt-5"
         >
           <div className=" bg-gray-900 p-6 rounded-xl text-gray-300">
             <h1 className="flex items-center gap-3 text-2xl mb-2">
