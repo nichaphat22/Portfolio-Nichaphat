@@ -14,6 +14,12 @@ const TABS = [
 const AboutSection = () => {
   const [actionTab, setActionTab] = useState("story");
   const isScrollLocked = useRef(false);
+  const actionTabRef = useRef("story");
+
+  const setTab = (id) => {
+    actionTabRef.current = id;
+    setActionTab(id);
+  }
 
   useEffect(() => {
     const container = document.getElementById("about-container");
@@ -22,7 +28,7 @@ const AboutSection = () => {
     const handleScroll = (e) => {
       if (isScrollLocked.current) return; // ✅ check ก่อน preventDefault
 
-      const currentIndex = TABS.findIndex((tab) => tab.id === actionTab);
+      const currentIndex = TABS.findIndex((tab) => tab.id === actionTabRef.current);
       // ใช้ ref แทนเพื่อหลีกเลี่ยง stale closure ↓
       
       const isLast = currentIndex === TABS.length - 1;
@@ -34,15 +40,15 @@ const AboutSection = () => {
       e.preventDefault(); // ✅ intercept เฉพาะตอนที่จะเปลี่ยน tab
       isScrollLocked.current = true;
 
-      if (e.deltaY > 0) setActionTab(TABS[currentIndex + 1].id);
-      else setActionTab(TABS[currentIndex - 1].id);
+      if (e.deltaY > 0) setTab(TABS[currentIndex + 1].id);
+      else              setTab(TABS[currentIndex - 1].id);
 
       setTimeout(() => { isScrollLocked.current = false; }, 700);
     };
 
     container.addEventListener("wheel", handleScroll, { passive: false });
     return () => container.removeEventListener("wheel", handleScroll);
-  }, [actionTab]);
+  }, []);
 
   return (
     <div
@@ -51,7 +57,7 @@ const AboutSection = () => {
     >
       {/* Tabs */}
       <div className="flex justify-center">
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3  bg-gray-800 p-2 rounded-xl">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3  bg-gray-200 dark:bg-gray-800 p-2 rounded-xl">
           {TABS.map((tab) => (
             <button
               key={tab.id}
@@ -60,12 +66,12 @@ const AboutSection = () => {
                     flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all duration-300 ${
                       actionTab === tab.id
                         ? "bg-indigo-600 text-white shadow-md"
-                        : "text-gray-300 hover:bg-gray-700"
+                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700"
                     }
                     `}
             >
               {tab.icon}
-              <span className="hidden xs:inline sm:inline">{tab.label}</span>
+              <span className="hidden sm:inline">{tab.label}</span>
             </button>
           ))}
         </div>

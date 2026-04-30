@@ -27,20 +27,20 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row  mt-8 gap-4 md:gap-12 md:mt-14">
           <a
             href="#contact"
-            className="flex items-center justify-center  bg-gray-900 p-4 rounded-xl text-gray-300  md:w-52"
+            className="flex items-center justify-center p-4 rounded-xl   md:w-52 btn"
           >
             get in touch
           </a>
           <a
             href=""
-            className="flex items-center justify-center  bg-gray-900 p-4 rounded-xl text-gray-300 md:w-52"
+            className="flex items-center justify-center  p-4 rounded-xl md:w-52 btn"
           >
             Download Resume
           </a>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 justify-center md:grid-cols-4 md:justify-center gap-8 px-4 py-10 md:px-8 border-b border-white/10">
+      <div className="grid grid-cols-2 justify-center md:grid-cols-4 md:justify-center gap-8 px-4 py-10 md:px-8 border-b border-gray-300 dark:border-white/10">
         <div className="col-span-2 md:col-span-1">
           <p className="uppercase font-bold text-lg tracking-wide">
             Nichaphat Siribut
@@ -92,7 +92,7 @@ const Footer = () => {
               href="https://github.com/nichaphat22"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-gray-900 rounded-xl text-gray-300 hover:text-white hover:bg-gray-800 transition"
+              className="p-4 btn rounded-xl hover:text-white hover:bg-gray-800 transition"
             >
               <FaGithub className="w-5 h-5" />
             </a>
@@ -101,7 +101,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/nichaphat22"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-gray-900 rounded-xl text-gray-300 hover:text-white hover:bg-gray-800 transition"
+              className="p-4 btn rounded-xl hover:text-white hover:bg-gray-800 transition"
             >
               <FaLinkedin className="w-5 h-5" />
             </a>
@@ -110,7 +110,7 @@ const Footer = () => {
               href="mailto:nichaphat.siribut22@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-gray-900 rounded-xl text-gray-300 hover:text-white hover:bg-gray-800 transition"
+              className="p-4 btn rounded-xl hover:text-white hover:bg-gray-800 transition"
             >
               <HiOutlineMail className="w-5 h-5" />
             </a>
@@ -119,7 +119,7 @@ const Footer = () => {
       </div>
 
       <div className="flex justify-end mt-auto pt-5">
-        <p className="text-xs text-gray-500 pb-2">
+        <p className="text-xs pb-2">
           &copy; NICHAPHAT SIRIBUT. All rights reserved.
         </p>
       </div>

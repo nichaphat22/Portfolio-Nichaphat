@@ -17,13 +17,13 @@ const Certification = () => {
   return (
     <div className="pt-20 mx-4 md:mx-16 lg:mx-32">
       <h2 className="text-3xl font-semibold">Certifications</h2>
-      <div className=" mt-2 h-[1px] bg-white"></div>
+      <div className=" mt-2 h-[1px] bg-gray-300 dark:bg-white/20 w-ful"></div>
 
       <div className="max-w-4xl mx-auto space-y-5 mt-5">
         {certifications.map((cert, index) => (
           <div
             key={index}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-8 bg-gray-900 p-5 sm:p-6 rounded-xl text-gray-300"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-8 bg-gray-100 dark:bg-gray-900 p-5 sm:p-6 rounded-xl "
           >
             <div className="w-full sm:w-1/3 flex items-center justify-center">
               <img

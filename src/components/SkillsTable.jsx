@@ -8,7 +8,7 @@ const SkillsTable = () => {
     {label: "Tools", logos:["/logos/GitHub.jpg", "/logos/Postman.png"] },
   ];
   return(
-    <div className="max-w-4xl mx-auto mt-4 border border-gray-400 text-white">
+    <div className="max-w-4xl mx-auto mt-4 border border-gray-400 ">
       {skills.map((skills, index) => (
         <div 
           key={index}

@@ -20,11 +20,11 @@ const Home = () => {
         </div>
 
         <div className="mt-auto flex justify-center items-center gap-4 md:gap-10 lg:gap:30 pb-5 flex-wrap px-4">
-          <a href="https://github.com/nichaphat22" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-2 dark:bg-gray-900/60 backdrop-blur-lg border border-gray-900/50 rounded-xl shadow-lg hover:bg-white/10 hover:scale-105 transition duration-300 cursor-pointer">
+          <a href="https://github.com/nichaphat22" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-2 btn">
             <IoLogoGithub /> GitHub <BsArrowRight />
           </a>
 
-          <a href="https://drive.google.com/file/d/1kX9J9eOSImIr1k_PRsAQC1OdTP1mT2kT/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-2 bg-white/30  dark:bg-gray-900/60 backdrop-blur-lg border border-gray-900/50 rounded-xl shadow-lg hover:bg-white/10 hover:scale-105 transition duration-300 cursor-pointer">
+          <a href="https://drive.google.com/file/d/1kX9J9eOSImIr1k_PRsAQC1OdTP1mT2kT/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-2 btn">
             <IoPersonSharp /> Resume <BsArrowRight />
           </a>
         </div>

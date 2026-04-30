@@ -28,15 +28,18 @@ const Header = ({theme, setTheme, activeSection}) => {
     {label: "Certification", id: "certification"},
     {label: "Contact", id: "contact"}
   ]
+
+  const isHome = activeSection === "home";
   
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-950 shadow-md dark:border-b backdrop-blur-xl transition-all duration-700 ${
-      activeSection === "home"
-        ? "bg-transparent text-white"
-        : "bg-white/70 dark:bg-gray-950/70 text-black dark:text-white shadow-sm"
+    <nav className={`fixed top-0 left-0 w-full z-50  backdrop-blur-xl transition-all duration-700 border-b ${
+      isHome
+        ? "bg-transparent border-transparent text-white"
+        : "bg-white/70 dark:bg-gray-950/70 border-gray-200 dark:border-gray-800 text-black dark:text-white shadow-sm"
     }`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
+
           {/* logo */}
           <div className="text-2xl font-bold text-gray-800 uppercase dark:text-white">
             nichaphat siribut
@@ -49,7 +52,7 @@ const Header = ({theme, setTheme, activeSection}) => {
               key={menu.id}
               onClick={() => scrollTo(menu.id)}
               className={`
-                relative text-base tracking-wide font-light transition-all duration-300 cursor-pointer ${
+                relative text-sm tracking-wide font-light transition-all duration-300 cursor-pointer ${
                   activeSection === menu.id 
                     ? "opacity-100"
                     : "opacity-50 hover:opacity-100"
@@ -68,6 +71,8 @@ const Header = ({theme, setTheme, activeSection}) => {
           
           </div>
 
+           {/* Theme toggle — Desktop */}
+          {/* ✅ แสดงไอคอนตรงกับ theme ปัจจุบัน */}
           <div className="hidden md:flex cursor-pointer" onClick={toggleTheme}>
             {theme === "light" ? <IoSunnySharp size={25}/> : <IoMoon size={25}/>}
           </div>
@@ -85,35 +90,35 @@ const Header = ({theme, setTheme, activeSection}) => {
       </div>
 
       {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl px-6 pb-4 space-y-4">
+      <div className={`md:hidden overflow-hidden transition-all duration-300
+        ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <div className="bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl px-6 pb-4 pt-2 space-y-3">
           {menus.map((menu) => (
             <button
               key={menu.id}
-              onClick={() => {
-                scrollTo(menu.id);
-                setIsOpen(false);
-              }}
-              className={`
-                block w-full text-left transition-all duration-300 ${
-                  activeSection === menu.id
-                  ? "opacity-100 font-medium"
-                  : "opacity-60"
-                }
-                `}
+              onClick={() => { scrollTo(menu.id); setIsOpen(false); }}
+              className={`block w-full text-left py-1 transition-all duration-300
+                ${activeSection === menu.id ? "opacity-100 font-medium" : "opacity-60"}`}
             >
               {menu.label}
             </button>
           ))}
-          
-          <div onClick={toggleTheme} className="block text-gray-600 dark:text-gray-300">
-            {theme === "light" ? <IoSunnySharp size={25}/> : <IoMoon size={25}/>}
-          </div> 
 
-          
+          {/* Theme toggle — Mobile */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center gap-2 text-sm opacity-70 hover:opacity-100 transition pt-1"
+          >
+            {theme === "dark"
+              ? <><IoSunnySharp size={20} /> Light mode</>
+              : <><IoMoon size={20} /> Dark mode</>
+            }
+          </button>
         </div>
+      </div>
         
-      )}
+    
     </nav>
   );
 };

@@ -1,6 +1,6 @@
 const StoryContent = () => {
   return (
-    <div className="mt-2 max-w-4xl mx-auto h-auto bg-gray-900 p-6 rounded-xl text-gray-300 transition-all duration-500 space-y-4 leading-relaxed text-left text-xs">
+    <div className="cart mt-2 max-w-4xl mx-auto h-auto  p-6 rounded-xl transition-all duration-500 space-y-4 leading-relaxed text-left text-xs">
       <p>
         As a fresh graduate, I began my journey in programming with a curiosity
         about how websites work behind the scenes. Starting with fundamentals
